@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'product_list'
 LOGOUT_REDIRECT_URL = 'product_list'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
