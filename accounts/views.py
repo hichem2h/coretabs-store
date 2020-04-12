@@ -20,7 +20,7 @@ def signup(request):
             # TODO dont save 2 times
             user.is_active = False
             user.save()
-            send_cofirmation_email(user)
+            send_cofirmation_email(request, user)
             return render(request, 'registration/signup_success.html')
     else:
         form = SignUpForm()
