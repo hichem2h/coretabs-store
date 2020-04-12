@@ -1,0 +1,12 @@
+<ul>
+    {% for product in products %}
+    <li>
+        <h2>{{ product.title | capfirst }}</h2>
+        <img src="{{product.image}}">
+        <p>{{ product.description | truncatechars:60}}</p>
+        <a href="{{product.get_absolute_url}}">see more</a>
+    </li>
+    {% empty %}
+    <li>No products yet.</li>
+    {% endfor %}
+</ul>

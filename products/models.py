@@ -9,7 +9,9 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', null=True)
 
     def get_absolute_url(self):
-        return reverse('product_detail', args=(self.id,))
+
+        # We can use reverse directly in the template
+        return reverse('product_details', args=(self.id,))
 
     def __str__(self):
         return self.title

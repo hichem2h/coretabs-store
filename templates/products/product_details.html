@@ -1,0 +1,8 @@
+<div>
+    <a href="{% url 'product_list' %}">All Products</a>
+
+    <h1>{{ product.title | capfirst }}</h1>
+    <p>Price: {{ product.price }}$</p>
+    <img src=" {{product.image}}">
+    <p>{{ product.description }}</p>
+</div>
