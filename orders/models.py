@@ -10,6 +10,7 @@ class Order(models.Model):
     user = models.ForeignKey(User, related_name='orders', on_delete=models.CASCADE)
     items = models.ManyToManyField(Product)
     address = models.CharField(max_length=256)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def total_price(self):
         total = 0
