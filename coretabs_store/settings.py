@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'products',
+    'carts',
 ]
 
 MIDDLEWARE = [
@@ -124,5 +125,6 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'product_list'
 LOGOUT_REDIRECT_URL = 'product_list'
+LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
