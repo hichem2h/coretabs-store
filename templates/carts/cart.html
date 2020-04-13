@@ -1,5 +1,5 @@
 <ul>
-    {% for product in products %}
+    {% for product in cart.items.all %}
     <li>
         <h2>{{ product.title | capfirst }}</h2>
         <a href="{% url 'remove_from_cart' product_id=product.id %}">Remove Product</a>
@@ -8,4 +8,5 @@
     <li>No products yet.</li>
     {% endfor %}
 </ul>
+<p>Total Price: {{ cart.total_price }}</p>
 <a href="{% url 'clear_cart' %}">Clear Cart</a>

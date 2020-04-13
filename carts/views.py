@@ -8,10 +8,7 @@ from .models import Cart
 
 @login_required
 def cart(request):
-    user = request.user
-
-    products = user.cart.items.all()
-    return render(request, 'carts/cart.html', {'products': products})
+    return render(request, 'carts/cart.html', {'cart': request.user.cart})
 
 
 @login_required
