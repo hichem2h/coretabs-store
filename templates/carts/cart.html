@@ -9,4 +9,5 @@
     {% endfor %}
 </ul>
 <p>Total Price: {{ cart.total_price }}</p>
+<a href="{% url 'order' %}">Make Order</a>
 <a href="{% url 'clear_cart' %}">Clear Cart</a>
