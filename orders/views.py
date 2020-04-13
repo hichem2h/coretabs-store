@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from .models import Order
 from .forms import OrderForm
 from .utils import send_order_email
 
@@ -23,3 +24,11 @@ def order(request):
         form = OrderForm()
 
     return render(request, 'orders/order.html', {'form': form})
+
+
+def order_list(request):
+    if request.user.is_authenticated and request.user.is_superuser:
+        orders = Order.objects.all()
+        return render(request, 'orders/order_list.html', {'orders': orders})
+    else:
+        return redirect('product_list')
