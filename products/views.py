@@ -16,19 +16,37 @@ def product_details(request, pk):
     return render(request, 'products/product_details.html', {'product': product})
 
 
+# Add our own decorator for superuser_required
+# better do add and edit product with django admin (customize admin)
 def add_product(request):
+    if request.user.is_authenticated and request.user.is_superuser:
+        if request.method == 'POST':
+            form = AddProductForm(request.POST, request.FILES)
 
-    if request.method == 'POST':
-        form = AddProductForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return render(request, 'products/add_product_success.html')
+        else:
+            form = AddProductForm()
 
-        if form.is_valid():
-            form.save()
-            return redirect('add_product_success')
+        return render(request, 'products/add_product.html', {'form': form})
     else:
-        form = AddProductForm()
-
-    return render(request, 'products/add_product.html', {'form': form})
+        return redirect('product_list')
 
 
-def add_product_success(request):
-    return render(request, 'products/add_product_success.html')
+def edit_product(request, pk):
+    if request.user.is_authenticated and request.user.is_superuser:
+        product_to_edit = get_object_or_404(Product, pk=pk)
+
+        if request.method == 'POST':
+            form = AddProductForm(request.POST, request.FILES, instance=product_to_edit)
+
+            if form.is_valid():
+                form.save()
+                return render(request, 'products/add_product_success.html')
+        else:
+            form = AddProductForm(instance=product_to_edit)
+
+        return render(request, 'products/add_product.html', {'form': form})
+    else:
+        return redirect('product_list')
