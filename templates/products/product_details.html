@@ -3,7 +3,7 @@
 
     <h1>{{ product.title | capfirst }}</h1>
     <p>Price: {{ product.price }}$</p>
-    <img src=" {{product.image}}">
+    <img width="300px" src=" {{product.image.url}}">
     <p>{{ product.description }}</p>
     <a href="{% url 'add_to_cart' product_id=product.id %}">Add Product</a>
 </div>

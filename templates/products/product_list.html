@@ -2,7 +2,7 @@
     {% for product in products %}
     <li>
         <h2>{{ product.title | capfirst }}</h2>
-        <img src="{{product.image}}">
+        <img width="300px" src="{{product.image.url}}">
         <p>{{ product.description | truncatechars:60}}</p>
         <a href="{{product.get_absolute_url}}">see more</a>
     </li>
