@@ -1,6 +1,20 @@
-<h1>Make Order</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Order">
-</form>
+{% extends "base.html" %}
+{% block head_title %}Order{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2 class="section-headline">Make Order</h2>
+    <p class="section-description">
+        Please fill in your address to make an order.
+    </p>
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit">Order</button>
+            </p>
+        </form>
+    </div>
+</section>
+{% endblock %}

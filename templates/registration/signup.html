@@ -1,6 +1,20 @@
-<h1>Sign up</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Signup">
-</form>
+{% extends "base.html" %}
+{% block head_title %}Sign Up{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2 class="section-headline">Sign Up</h2>
+    <p class="section-description">
+        Please fill in this form to create an account.
+    </p>
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit">Signup</button>
+            </p>
+        </form>
+    </div>
+</section>
+{% endblock %}

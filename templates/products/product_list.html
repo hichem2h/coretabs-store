@@ -1,12 +1,30 @@
-<ul>
-    {% for product in products %}
-    <li>
-        <h2>{{ product.title | capfirst }}</h2>
-        <img width="300px" src="{{product.image.url}}">
-        <p>{{ product.description | truncatechars:60}}</p>
-        <a href="{{product.get_absolute_url}}">see more</a>
-    </li>
-    {% empty %}
-    <li>No products yet.</li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+{% block head_title %}All Products{% endblock %}
+
+{% block content %}
+<section id="featured-products">
+
+    <h2 class="section-headline">Featured Products</h2>
+    <p class="section-description">
+        Refresh your look with pieces of our winter collection
+    </p>
+
+    <div class="products-wrapper clearfix">
+        {% for product in products %}
+        <div class="product">
+            <div class="product-img">
+                <img src="{{product.image.url}}" alt="">
+                <a href="{{product.get_absolute_url}}" class="details-btn">Details</a>
+            </div>
+            <div class="product-description">
+                <div class="product-brand">{{ product.brand | capfirst }}</div>
+                <a class="product-name" href="{{product.get_absolute_url}}">{{ product.title | capfirst }}</a>
+                <div class="product-price">${{ product.price | floatformat:2 }}</div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No products yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

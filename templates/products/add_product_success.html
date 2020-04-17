@@ -1,1 +1,11 @@
-<p>Product Added Successfully</p>
+{% extends "base.html" %}
+{% block head_title %}Reset Password{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <h1 class="section-headline">Product added Successfully!</h1>
+        <a class="back" href="{% url 'home' %}">Continue to homepage</a>
+    </div>
+</section>
+{% endblock %}

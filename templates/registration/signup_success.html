@@ -1,1 +1,13 @@
-<p>Confirmation Email sent</p>
+{% extends "base.html" %}
+{% block head_title %}Sign Up{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <h1 class="section-headline">Thank You!</h1>
+        <p class="section-description"><strong>Please check your email</strong> for further instructions on
+            how to complete your account setup.</p>
+        <a class="back" href="{% url 'home' %}">Continue to homepage</a>
+    </div>
+</section>
+{% endblock %}

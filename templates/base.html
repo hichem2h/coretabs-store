@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Questrial|Domine" rel="stylesheet" />
+    <title>{% block head_title %}STORE{% endblock %}</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!--HEADER-->
+        <header>
+            <h1 id="logo">
+                <a href="{% url 'home' %}">STORE</a>
+            </h1>{% url 'home' %}
+            <div id="cart">
+                <!--1-->
+                <a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </header>
+
+        <!--MAIN-->
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <!--FOOTER-->
+    <footer>
+        <a href="#" id="scroll-up">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        <!--2-->
+        <p>&copy; 2020 STORE All Rights Reserved.</p>
+        <!--2-->
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

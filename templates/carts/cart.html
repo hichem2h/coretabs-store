@@ -1,13 +1,50 @@
-<ul>
-    {% for product in cart.items.all %}
-    <li>
-        <h2>{{ product.title | capfirst }}</h2>
-        <a href="{% url 'remove_from_cart' product_id=product.id %}">Remove Product</a>
-    </li>
-    {% empty %}
-    <li>No products yet.</li>
-    {% endfor %}
-</ul>
-<p>Total Price: {{ cart.total_price }}</p>
-<a href="{% url 'order' %}">Make Order</a>
-<a href="{% url 'clear_cart' %}">Clear Cart</a>
+{% extends "base.html" %}
+{% block head_title %}All Products{% endblock %}
+
+{% block content %}
+<section class="clearfix">
+
+    <h2 class="section-headline">Cart</h2>
+    <p class="section-description">
+        Please check your products before checkout.
+    </p>
+
+    <div class="cart">
+        <ul>
+            {% for product in cart.items.all %}
+            <li class="item">
+                <div>
+                    <img src="{{ product.image.url }}" alt="" />
+                </div>
+                <div>
+                    <h3>{{ product.title | capfirst }}</h3>
+                </div>
+                <div>
+                    <p>${{ product.price | floatformat:2 }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'remove_from_cart' product_id=product.id %}" class="remove">x</a>
+                </div>
+            </li>
+            {% empty %}
+            <p>No products yet.</p>
+            {% endfor %}
+            <li class="item">
+                <div>
+                    <p></p>
+                </div>
+                <div>
+                    <h3>Total</h3>
+                </div>
+                <div>
+                    <p>${{ cart.total_price }}</p>
+                </div>
+                <div>
+                    <a href="{% url 'order' %}" class="checkout">Checkout</a>
+                    <a href="{% url 'clear_cart' %}" class="clear">Clear Cart</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

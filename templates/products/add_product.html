@@ -1,6 +1,20 @@
-<h1>Add/Edit Product</h1>
-<form enctype="multipart/form-data" action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+{% extends "base.html" %}
+{% block head_title %}Add/Edit Product{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2 class="section-headline">Add/Edit Product</h2>
+    <p class="section-description">
+        Please fill in your email to reset your password.
+    </p>
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit">Save</button>
+            </p>
+        </form>
+    </div>
+</section>
+{% endblock %}

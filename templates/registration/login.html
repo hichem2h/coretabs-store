@@ -1,8 +1,24 @@
-<h1>Login</h1>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Login">
-</form>
-<a href="{% url 'signup' %}">Signup</a>
-<a href="{% url 'password_reset' %}">Reset Password</a>
+{% extends "base.html" %}
+{% block head_title %}Login{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <h2 class="section-headline">Login</h2>
+    <p class="section-description">
+        Please fill in your credentials to login to your account.
+    </p>
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p>
+                <button type="submit">Login</button>
+            </p>
+        </form>
+        <p>
+            <a href="{% url 'signup' %}">Don't have an account?</a>
+            <a href="{% url 'password_reset' %}">Reset password?</a>
+        </p>
+    </div>
+</section>
+{% endblock %}
