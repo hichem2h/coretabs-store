@@ -296,6 +296,12 @@ span.helptext {
     position: relative;
     overflow: hidden;
     background: #efefef;
+    background-image: url("image-not-found.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    width: 290px;
+    height: 335px;
 }
 
 .product-img img{
@@ -384,6 +390,10 @@ span.helptext {
     background: #efefef;
     position: relative;
     overflow: hidden;
+    background-image: url("image-not-found.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
 }
 
 
@@ -510,6 +520,16 @@ footer p{
     color: #777777;
     font-weight: bold;
     font-size: 20px;
+}
+
+.cart-product-img {
+    background: #efefef;
+    background-image: url("image-not-found.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    width: 290px;
+    height: 150px;
 }
 
 .cart img {
