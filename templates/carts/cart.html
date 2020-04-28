@@ -27,9 +27,13 @@
                 </div>
             </li>
             {% empty %}
-            <p>No products yet.</p>
+            <li>
+                <p>No products yet.</p>
+            </li>
             {% endfor %}
-            <li class="item">
+
+            {% if cart.items.all.count > 0 %}
+            <li class="item" id="cart-summary">
                 <div>
                     <p></p>
                 </div>
@@ -44,6 +48,7 @@
                     <a href="{% url 'clear_cart' %}" class="clear">Clear Cart</a>
                 </div>
             </li>
+            {% endif%}
         </ul>
     </div>
 </section>

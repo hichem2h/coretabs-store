@@ -494,6 +494,14 @@ footer p{
 
 
 /*Cart Rules*/
+.cart {
+    margin-top: 48px;
+}
+
+.cart ul {
+    padding: 0;
+}
+
 .cart li {
     display: block;
     width: 100%;
@@ -508,10 +516,11 @@ footer p{
 
 .cart h3 {
     margin: 50px 0 0 0;
-
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: left;
+    margin-left: 16px;
 }
 
 .cart p {
@@ -539,6 +548,10 @@ footer p{
 .cart a {
     margin: 45px 0 0 0;
     text-decoration: none;
+}
+
+.cart #cart-summary {
+    border-top: 1px solid #e0e0e0;
 }
 
 .cart a.remove {
