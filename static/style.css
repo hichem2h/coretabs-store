@@ -35,18 +35,25 @@ header{
     color: #222;
     text-decoration: none;
 }
-
-#cart{
+#controls {
+    position: absolute;
+    top: 15px;
+    right: 14%;
+}
+#controls #cart{
+    position: relative;
+    display: inline-block;
     width: 30px;
     line-height: 30px;
-    color: #222; /*1*/
     text-align: center; /*1*/
-    position: absolute;
-    top: 25px;
-    right: 14%;
     cursor: pointer;
+    margin-right: 16px;
 }
-#cart-counter{ 
+#controls p { display: inline-block;}
+#controls #cart a{
+    color: #222; 
+}
+#cart #cart-counter{ 
     width: 15px; /*2*/
     line-height: 15px; /*2*/
     background-color: #F44336;
@@ -57,7 +64,16 @@ header{
     position: absolute;
     top: 0px; /*2*/
     right: 0px; /*2*/
-    /* z-index: -1; */ 
+}
+#login{
+    display: inline-block;
+    width: 140px;
+    line-height: 40px;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid #222;
+    color: #222;
+    cursor: pointer;
 }
 /*Navbar Rules*/
 .nav{
