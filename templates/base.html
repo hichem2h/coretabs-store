@@ -23,6 +23,12 @@
             <div id="cart">
                 <!--1-->
                 <a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a>
+                
+                {% if request.user.cart.items.all|length > 0 %}
+                <span id="cart-counter">
+                {{ request.user.cart.items.all|length }}
+                </span>
+                {% endif %}
             </div>
         </header>
 
