@@ -20,21 +20,22 @@
             <h1 id="logo">
                 <a href="{% url 'home' %}">STORE</a>
             </h1>
-            
+
             <div id="controls">
                 <div id="cart">
                     <!--1-->
                     <a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a>
-                    
+
                     {% if request.user.cart.items.all|length > 0 %}
                     <span id="cart-counter">
-                    {{ request.user.cart.items.all|length }}
+                        {{ request.user.cart.items.all|length }}
                     </span>
                     {% endif %}
                 </div>
-                
+
                 {% if user.is_authenticated %}
                 <p>Hi, {{ user.username }}</p>
+                <input type="button" id="logout" onclick="location.href='{% url 'logout' %}'" value="Log out" />
                 {% else  %}
                 <input type="button" id="login" onclick="location.href='{% url 'login' %}'" value="Log in" />
                 {% endif %}
